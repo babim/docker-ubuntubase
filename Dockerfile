@@ -21,11 +21,7 @@ RUN apt-get clean && \
 ## Fix locale.
 RUN apt-get install language-pack-en -y
 RUN locale-gen en_US.UTF-8
-RUN update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8 
-RUN echo -n en_US.UTF-8 > /etc/container_environment/LANG
-RUN echo -n en_US.UTF-8 > /etc/container_environment/LC_CTYPE
-RUN echo -n en_US:en > /etc/container_environment/LANGUAGE
-RUN echo -n en_US.UTF-8 > /etc/container_environment/LC_ALL
+RUN update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
     
 RUN apt-get clean && \
     apt-get autoclean && \

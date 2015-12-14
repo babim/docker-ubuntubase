@@ -9,6 +9,10 @@ RUN rm -f /etc/motd && \
     echo "Babim Container Framework \n \l" > /etc/issue && \
     touch "/(C) Babim"
 
+## Enable Ubuntu Universe and Multiverse.
+RUN sed -i 's/^#\s*\(deb.*universe\)$/\1/g' /etc/apt/sources.list
+RUN sed -i 's/^#\s*\(deb.*multiverse\)$/\1/g' /etc/apt/sources.list
+
 RUN apt-get clean && \
     apt-get update && \
     apt-get dist-upgrade -y --force-yes && \

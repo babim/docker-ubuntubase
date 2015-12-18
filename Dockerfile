@@ -11,11 +11,26 @@ RUN rm -f /etc/motd && \
     touch "/(C) Babim"
 
 RUN apt-get update && apt-get install -y \
-	    locales
+	    locales wget nano openssh-server
 
 RUN dpkg-reconfigure locales && \
     locale-gen en_US.UTF-8 && \
     update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
+
+RUN mkdir /var/run/sshd
+# set password root is root
+RUN echo 'root:root' | chpasswd
+# allow root ssh
+RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+# SSH login fix. Otherwise user is kicked off after login
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
 
 RUN apt-get clean && \
     apt-get autoclean && \

@@ -10,24 +10,19 @@ RUN rm -f /etc/motd && \
     echo "Babim Container Framework" > /etc/issue.net && \
     touch "/(C) Babim"
 
-## Enable Ubuntu Universe and Multiverse.
-RUN sed -i 's/^#\s*\(deb.*universe\)$/\1/g' /etc/apt/sources.list
-RUN sed -i 's/^#\s*\(deb.*multiverse\)$/\1/g' /etc/apt/sources.list
+RUN apt-get update && apt-get install -y \
+	    locales
 
-RUN apt-get clean && \
-    apt-get update && \
-    apt-get dist-upgrade -y --force-yes && \
-    apt-get install nano -y
+RUN dpkg-reconfigure locales && \
+    locale-gen en_US.UTF-8 && \
+    update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 
-## Fix locale.
-RUN apt-get install language-pack-en -y
-RUN locale-gen en_US.UTF-8
-RUN update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
-    
 RUN apt-get clean && \
     apt-get autoclean && \
-    apt-get autoremove && \
+    apt-get autoremove -y && \
     rm -rf /build && \
     rm -rf /tmp/* /var/tmp/* && \
     rm -rf /var/lib/apt/lists/* && \
     rm -f /etc/dpkg/dpkg.cfg.d/02apt-speedup
+
+ENV LC_ALL en_US.UTF-8

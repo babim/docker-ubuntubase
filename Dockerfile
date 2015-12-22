@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:trusty
 
 MAINTAINER "Duc Anh Babim" <ducanh.babim@yahoo.com>
 

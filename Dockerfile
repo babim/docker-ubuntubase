@@ -11,7 +11,7 @@ RUN rm -f /etc/motd && \
     touch "/(C) Babim"
 
 RUN apt-get update && apt-get install -y \
-	    locales
+	    nano wget locales
 
 RUN dpkg-reconfigure locales && \
     locale-gen en_US.UTF-8 && \

@@ -26,3 +26,4 @@ RUN apt-get clean && \
     rm -f /etc/dpkg/dpkg.cfg.d/02apt-speedup
 
 ENV LC_ALL en_US.UTF-8
+ENV TZ Asia/Ho_Chi_Minh

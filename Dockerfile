@@ -10,8 +10,9 @@ RUN rm -f /etc/motd && \
     echo "Babim Container Framework" > /etc/issue.net && \
     touch "/(C) Babim"
 
-RUN apt-get update && apt-get install -y \
-	    locales wget nano openssh-server
+RUN  sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
+	apt-get update && apt-get install -y \
+	    locales wget nano
 
 RUN dpkg-reconfigure locales && \
     locale-gen en_US.UTF-8 && \

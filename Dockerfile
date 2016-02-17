@@ -6,8 +6,6 @@ RUN rm -f /etc/motd && \
     echo "---" > /etc/motd && \
     echo "Support by Duc Anh Babim. Contact: ducanh.babim@yahoo.com" >> /etc/motd && \
     echo "---" >> /etc/motd && \
-    echo "Babim Container Framework \l" > /etc/issue && \
-    echo "Babim Container Framework" > /etc/issue.net && \
     touch "/(C) Babim"
 
 RUN  sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \

@@ -39,5 +39,8 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -f /etc/dpkg/dpkg.cfg.d/02apt-speedup
 
+ADD runssh.sh /runssh.sh
+RUN chmod +x /runssh.sh
+
 ENV LC_ALL en_US.UTF-8
 ENV TZ Asia/Ho_Chi_Minh

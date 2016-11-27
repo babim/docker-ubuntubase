@@ -1,3 +1,4 @@
+#!/bin/bash
 # SSH
 if [ "${AUTHORIZED_KEYS}" != "**None**" ]; then
     echo "=> Found authorized keys"
@@ -22,3 +23,4 @@ fi
 SSHPASS1=${SSHPASS:-root}
 echo "root:$SSHPASS1" | chpasswd
 service ssh start
+exec "$@"

@@ -22,5 +22,5 @@ fi
 # set password root is root
 SSHPASS1=${SSHPASS:-root}
 echo "root:$SSHPASS1" | chpasswd
-service ssh start
+#service ssh start
 exec "$@"

@@ -30,6 +30,7 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
+ENTRYPOINT ["/runssh.sh"]
 
 RUN apt-get clean && \
     apt-get autoclean && \

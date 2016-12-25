@@ -24,7 +24,7 @@ SSHPASS1=${SSHPASS:-root}
 echo "root:$SSHPASS1" | chpasswd
 
 # check other script and run ssh
-if [ ! -f "/boot.sh" ] && [ ! -f "/first.sh" ] && [ ! -f "/firstrun.sh" ] && [ ! -f "/start.sh" ] && [ ! -f "/starting.sh" ] && [ ! -f "/startup.sh" ] && [ ! -f "/run.sh" ] && [ ! -f "/entry.sh" ] && [ ! -f "/entrypoint.sh" ] && [ ! -f "/entry-point.sh" ] && [ ! -f "/docker-entrypoint.sh" ]; then
+if [ -f "/boot.sh" ] && [ -f "/first.sh" ] && [ -f "/firstrun.sh" ] && [ ! -f "/start.sh" ] && [ -f "/starting.sh" ] && [ -f "/startup.sh" ] && [ -f "/run.sh" ] && [ -f "/entry.sh" ] && [ -f "/entrypoint.sh" ] && [ -f "/entry-point.sh" ] && [ -f "/docker-entrypoint.sh" ]; then
     service ssh start
 fi
 

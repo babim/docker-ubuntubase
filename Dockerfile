@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:xenial
 # Maintainer
 # ----------
 MAINTAINER babim <babim@matmagoc.com>

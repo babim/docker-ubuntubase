@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 # Maintainer
 # ----------
 MAINTAINER babim <babim@matmagoc.com>
@@ -11,7 +11,7 @@ RUN rm -f /etc/motd && \
 
 RUN  sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
 	apt-get update && apt-get install -y \
-	    locales wget nano
+	    locales nano
 
 RUN dpkg-reconfigure locales && \
     locale-gen en_US.UTF-8 && \

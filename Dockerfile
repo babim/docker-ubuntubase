@@ -3,6 +3,10 @@ FROM ubuntu:bionic
 # ----------
 MAINTAINER babim <babim@matmagoc.com>
 
+ENV TZ Asia/Ho_Chi_Minh
+ARG DEBIAN_FRONTEND="noninteractive"
+ENV TERM="xterm" LANG="C.UTF-8" LC_ALL="C.UTF-8"
+
 RUN rm -f /etc/motd && \
     echo "---" > /etc/motd && \
     echo "Support by Duc Anh Babim. Contact: babim@matmagoc.com" >> /etc/motd && \
@@ -43,6 +47,3 @@ RUN apt-get clean && \
     
 ADD runssh.sh /runssh.sh
 RUN chmod +x /runssh.sh
-
-ENV LC_ALL en_US.UTF-8
-ENV TZ Asia/Ho_Chi_Minh

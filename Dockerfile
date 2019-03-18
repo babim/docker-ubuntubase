@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM i386/ubuntu:bionic
 # Maintainer
 # ----------
 MAINTAINER babim <babim@matmagoc.com>

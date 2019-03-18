@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM i386/ubuntu:trusty
 # Maintainer
 # ----------
 MAINTAINER babim <babim@matmagoc.com>

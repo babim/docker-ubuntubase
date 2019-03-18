@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM i386/ubuntu:xenial
 # Maintainer
 # ----------
 MAINTAINER babim <babim@matmagoc.com>

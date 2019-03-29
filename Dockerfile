@@ -3,7 +3,9 @@ FROM i386/ubuntu:bionic
 # ----------
 MAINTAINER babim <babim@matmagoc.com>
 
+# Set timezone to VN
 ENV TZ Asia/Ho_Chi_Minh
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ARG DEBIAN_FRONTEND="noninteractive"
 ENV TERM="xterm" LANG="C.UTF-8" LC_ALL="C.UTF-8"
 

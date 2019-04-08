@@ -8,7 +8,7 @@ RUN  sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
 	    locales nano openssh-server bash curl
 
 # copyright and timezone
-RUN bash <(curl -s https://raw.githubusercontent.com/babim/docker-tag-options/master/z%20SCRIPT%20AUTO/copyright.sh)
+RUN curl -s https://raw.githubusercontent.com/babim/docker-tag-options/master/z%20SCRIPT%20AUTO/copyright.sh | bash
 
 RUN mkdir /var/run/sshd
 # set password root is root

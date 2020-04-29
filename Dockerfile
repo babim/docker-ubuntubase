@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 # Maintainer
 # ----------
 MAINTAINER babim <babim@matmagoc.com>

@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:oracular
 # Maintainer
 # ----------
 MAINTAINER babim <babim@matmagoc.com>
